@@ -1,0 +1,80 @@
+{
+    "manifestVersion": 1,
+    "id": "generic-html-report",
+    "publisher": "LeonardoMoura",
+    "version": "1.0.5",
+    "author": "Leonardo Moura",
+    "name": "Generic Html Viewer Dev",
+    "description": "Embed Generic HTML report in Azure Pipelines",
+    "public": false,
+    "categories": ["Azure Pipelines"],
+    "icons": {
+        "default": "icon.png"
+    },
+    "tags": ["Preview"],
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/leonardosimoura/azure-pipeline-generic-html-report"
+    },
+    "content": {
+        "details": {
+            "path": "README.md"
+        },
+        "license": {
+            "path": "LICENSE"
+        }
+    },
+    "scopes": [
+        "vso.build_execute"
+    ],
+    "demands": [
+        "api-version/3.0"
+    ],
+    "contributions": [
+        {
+            "id": "build-html-report-tab",
+            "type": "ms.vss-build-web.build-results-tab",
+            "description": "Embed Generic HTML files viewer in Azure Pipelines Release",
+            "targets": ["ms.vss-build-web.build-results-view"],
+            "properties": {
+                "name": "HTML Viewer",
+                "uri": "dist/tabContent.html",
+                "registeredObjectId": "registerBuild",
+                "supportsTasks": ["c991a71e-dcb5-41f7-a94a-ef5cd11222ca"],
+                "dynamic": true
+            },
+            "includes": ["ms.vss-releaseManagement-web.release-service-data-external"]
+        },
+        {
+            "id": "GenericHtmlReport",
+            "type": "ms.vss-distributed-task.task",
+            "targets": ["ms.vss-distributed-task.tasks"],
+            "properties": {
+                "name": "GenericHtmlReport",
+                "displayName": "Publish Generic HTML Report"
+            }
+        }
+    ],
+    "files": [
+        {
+            "path": "./GenericHtmlReport",
+            "packagePath": "GenericHtmlReport",
+            "addressable": false
+        },
+        {
+            "path": "./GenericHtmlReport/node_modules",
+            "packagePath": "GenericHtmlReport/node_modules",
+            "addressable": false
+        },
+        {
+            "path": "./dist",
+            "packagePath": "dist",
+            "addressable": true
+        }
+    ]
+}
