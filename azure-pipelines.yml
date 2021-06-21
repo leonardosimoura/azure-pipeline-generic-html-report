@@ -28,7 +28,7 @@ steps:
     verbose: false
     customCommand: 'run build:cidev'
 
-- task: PackageAzureDevOpsExtension@2
+- task: PackageAzureDevOpsExtension@3
   displayName: 'TFX: Package Extension Prod'
   inputs:
     rootFolder: .
@@ -40,7 +40,7 @@ steps:
     extensionPricing: free
   condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
 
-- task: PackageAzureDevOpsExtension@2
+- task: PackageAzureDevOpsExtension@3
   displayName: 'TFX: Package Extension Dev'
   inputs:
     rootFolder: .
