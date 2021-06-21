@@ -28,17 +28,17 @@ steps:
     verbose: false
     customCommand: 'run build:cidev'
 
-- task: PackageAzureDevOpsExtension@3
-  displayName: 'TFX: Package Extension Prod'
-  inputs:
-    rootFolder: .
-    patternManifest: 'vss-extension.json'
-    publisherId: LeonardoMoura
-    extensionId: azure-pipelines-generic-html-report
-    extensionName: 'Generic Html Viewer'
-    extensionVisibility: private
-    extensionPricing: free
-  condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
+# - task: PackageAzureDevOpsExtension@3
+#   displayName: 'TFX: Package Extension Prod'
+#   inputs:
+#     rootFolder: .
+#     patternManifest: 'vss-extension.json'
+#     publisherId: LeonardoMoura
+#     extensionId: azure-pipelines-generic-html-report
+#     extensionName: 'Generic Html Viewer'
+#     extensionVisibility: private
+#     extensionPricing: free
+#   condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
 
 - task: PackageAzureDevOpsExtension@3
   displayName: 'TFX: Package Extension Dev'
@@ -53,7 +53,6 @@ steps:
     updateTasksVersion: true
     extensionVisibility: private
     extensionPricing: free
-  condition: and(succeeded(), ne(variables['Build.SourceBranchName'], 'main'))
 
 - task: CopyFiles@2
   displayName: 'Copy Files'
