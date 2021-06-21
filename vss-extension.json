@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "generic-html-report",
     "publisher": "LeonardoMoura",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "author": "Leonardo Moura",
     "name": "Generic Html Viewer Dev",
     "description": "Embed Generic HTML report in Azure Pipelines",
