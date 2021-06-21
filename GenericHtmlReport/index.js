@@ -5,7 +5,7 @@ const globby = require('globby')
 const { readFileSync, writeFileSync } = require('fs')
 const { load } = require('cheerio')
 
-const attachmentType = "generic-report-html"
+const attachmentType = "generic-report-html";
 
 function run () {
     let reportDir = tl.getPathInput('reportDir', true, true);

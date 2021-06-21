@@ -8,7 +8,7 @@ import * as SDK from "azure-devops-extension-sdk";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-const ATTACHMENT_TYPE = "report-html";
+const ATTACHMENT_TYPE = "generic-report-html";
 
 SDK.init()
 SDK.ready().then(() => {
