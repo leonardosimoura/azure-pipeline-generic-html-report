@@ -8,6 +8,8 @@ steps:
   inputs:
     versionSpec: '12.x'
 
+- script: "npm install -g tfx-cli"
+
 - task: Npm@1
   displayName: 'NPM: Install Task Dependencies'
   inputs:
@@ -20,13 +22,15 @@ steps:
     workingDir: .
     verbose: false
 
-- task: Npm@1
-  displayName: 'build extension'
-  inputs:
-    command: custom
-    workingDir: .
-    verbose: false
-    customCommand: 'run build:cidev'
+# - task: Npm@1
+#   displayName: 'build extension'
+#   inputs:
+#     command: custom
+#     workingDir: .
+#     verbose: false
+#     customCommand: 'run build:cidev'
+
+- script: "npm run build"
 
 # - task: PackageAzureDevOpsExtension@3
 #   displayName: 'TFX: Package Extension Prod'
