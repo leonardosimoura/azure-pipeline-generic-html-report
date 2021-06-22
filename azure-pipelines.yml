@@ -22,7 +22,7 @@ steps:
     workingDir: .
     verbose: false
 
-- script: "npm run build"
+#- script: "npm run build"
 
 - task: TfxInstaller@3
   displayName: 'Use Node CLI for Azure DevOps'
@@ -86,7 +86,7 @@ steps:
     connectTo: 'VsTeam'
     connectedServiceName: 'LeonardoMouraMarketPlaceSVC'
     fileType: 'vsix'
-    vsixFile: '$(Build.SourcesDirectory)/vsix/vsts-developer-tools-build-tasks.vsix'
+    vsixFile: '$(Build.SourcesDirectory)\azure-pipelines-generic-html-report.vsix'
     publisherId: 'LeonardoMoura'
     extensionId: 'azure-pipelines-generic-html-report'
     extensionTag: dev
