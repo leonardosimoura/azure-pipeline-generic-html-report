@@ -45,7 +45,7 @@ steps:
 #   inputs:
 #     rootFolder: .
 #     patternManifest: 'vss-extension.json'
-#     publisherId: LeonardoMoura
+#     publisherId: LeonardoSilviodeMoura
 #     extensionId: azure-pipelines-generic-html-report
 #     extensionName: 'Generic Html Report'
 #     extensionVisibility: private
@@ -57,7 +57,7 @@ steps:
 #   inputs:
 #     rootFolder: .
 #     patternManifest: 'vss-extension.json'
-#     publisherId: LeonardoMoura
+#     publisherId: LeonardoSilviodeMoura
 #     extensionId: azure-pipelines-generic-html-report
 #     extensionTag: dev
 #     extensionName: 'Generic Html Report Dev'
@@ -72,7 +72,7 @@ steps:
   inputs:
     rootFolder: '$(Build.SourcesDirectory)'
     outputPath: '$(Build.SourcesDirectory)\azure-pipelines-generic-html-report.vsix'
-    publisherId: 'LeonardoMoura'
+    publisherId: 'LeonardoSilviodeMoura'
     extensionId: 'azure-pipelines-generic-html-report'
     extensionTag: '-build'
     extensionName: 'Generic Html Report Dev'
@@ -87,7 +87,7 @@ steps:
     connectedServiceName: 'LeonardoMouraMarketPlaceSVC'
     fileType: 'vsix'
     vsixFile: '$(Build.SourcesDirectory)\azure-pipelines-generic-html-report.vsix'
-    publisherId: 'LeonardoMoura'
+    publisherId: 'LeonardoSilviodeMoura'
     extensionId: 'azure-pipelines-generic-html-report'
     extensionTag: dev
     extensionName: 'Generic Html Report Dev'
