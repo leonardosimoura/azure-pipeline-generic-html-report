@@ -2,10 +2,10 @@
     "manifestVersion": 1,
     "id": "generic-html-report",
     "publisher": "LeonardoMoura",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "author": "Leonardo Moura",
-    "name": "Generic Html Viewer Dev",
-    "description": "Embed Generic HTML report in Azure Pipelines",
+    "name": "Generic Html Report Dev",
+    "description": "Enable Generic HTML Reports in Azure Pipelines",
     "public": false,
     "categories": ["Azure Pipelines"],
     "icons": {
@@ -42,7 +42,7 @@
             "description": "Embed Generic HTML files viewer in Azure Pipelines Release",
             "targets": ["ms.vss-build-web.build-results-view"],
             "properties": {
-                "name": "HTML Viewer",
+                "name": "HTML Report",
                 "uri": "dist/tabContent.html",
                 "registeredObjectId": "registerBuild",
                 "supportsTasks": ["c991a71e-dcb5-41f7-a94a-ef5cd11222ca"],
