@@ -1,8 +1,8 @@
 {
   "id": "c991a71e-dcb5-41f7-a94a-ef5cd11222ca",
-  "name": "PublishGenericHtmlReport",
-  "friendlyName": "Publish Generic Html Report",
-  "description": "Publish Generic Html Report",
+  "name": "GenericHtmlReport",
+  "friendlyName": "Generic Html Report",
+  "description": "Generic Html Report",
   "author": "Leonardo Silvio de Moura",
   "helpMarkDown": "Publish Generic HTML Report ",
   "category": "Utility",
@@ -16,7 +16,7 @@
     "Patch": "0"
   },
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "Publish Generic Html Report",
+  "instanceNameFormat": "Generic Html Report",
   "inputs": [
     {
       "name": "tabName",
@@ -29,10 +29,10 @@
     {
       "name": "reportDir",
       "type": "filePath",
-      "label": "HTML file",
+      "label": "HTML file Directory",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "HTML file."
+      "helpMarkDown": "HTML file directory where GenericHtmlReport is run."
     }
   ],
   "execution": {
