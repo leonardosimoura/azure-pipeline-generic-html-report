@@ -29,10 +29,10 @@
     {
       "name": "reportDir",
       "type": "filePath",
-      "label": "HTML file Directory",
+      "label": "HTML file",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "HTML file directory where GenericHtmlReport is run."
+      "helpMarkDown": "HTML file."
     }
   ],
   "execution": {
