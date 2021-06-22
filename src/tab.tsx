@@ -1,4 +1,4 @@
-import "./tabContent.scss";
+import "./tab.scss";
 import { ObservableValue, ObservableObject } from "azure-devops-ui/Core/Observable";
 import { Observer } from "azure-devops-ui/Observer";
 import { Tab, TabBar, TabSize } from "azure-devops-ui/Tabs";
@@ -96,16 +96,6 @@ export default class TaskAttachmentPanel extends React.Component<TaskAttachmentP
     this.tabContents = new ObservableObject();
   }
 
-  public escapeHTML(str: string) {
-    return str.replace(/[&<>'"]/g, tag => ({
-      '&': '&amp;',
-      '<': '&lt;',
-      '>': '&gt;',
-      "'": '&#39;',
-      '"': '&quot;'
-    }[tag] || tag));
-  }
-
   public render() {
     const attachments = this.props.attachmentClient.getAttachments();
     if (attachments.length == 0) {
@@ -114,7 +104,7 @@ export default class TaskAttachmentPanel extends React.Component<TaskAttachmentP
       const tabs = [];
       for (const attachment of attachments) {
         const metadata = attachment.name.split('.');
-        // Conditionally add counter for multistage pipeline
+        //multistage pipeline
         const name = metadata[2] !== '__default' ? `${metadata[2]} #${metadata[3]}` : metadata[0];
 
         tabs.push(<Tab name={name} id={attachment.name} key={attachment.name} url={attachment._links.self.href}/>);
@@ -134,7 +124,7 @@ export default class TaskAttachmentPanel extends React.Component<TaskAttachmentP
             {(props: { selectedTabId: string }) => {
               if ( this.tabContents.get(props.selectedTabId) === this.tabInitialContent) {
                 this.props.attachmentClient.getAttachmentContent(props.selectedTabId).then((content) => {
-                  this.tabContents.set(props.selectedTabId, '<iframe class="wide flex-row flex-center" srcdoc="' + this.escapeHTML(content) + '"></iframe>')
+                  this.tabContents.set(props.selectedTabId, '<iframe class="wide flex-row flex-center" srcdoc="' + this.fixHTML(content) + '"></iframe>')
               })
             }
               return  <span dangerouslySetInnerHTML={ {__html: this.tabContents.get(props.selectedTabId)} } />
@@ -143,6 +133,16 @@ export default class TaskAttachmentPanel extends React.Component<TaskAttachmentP
         </div>
       );
     }
+  }
+
+  public fixHTML(str: string) {
+    return str.replace(/[&<>'"]/g, tag => ({
+      '&': '&amp;',
+      '"': '&quot;',
+      '<': '&lt;',
+      '>': '&gt;',
+      "'": '&#39;',
+    }[tag] || tag));
   }
 
   private onSelectedTabChanged = (newTabId: string) => {

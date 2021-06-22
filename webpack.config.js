@@ -4,7 +4,7 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: {
-       tabContent:  "./src/tabContent.tsx",
+       tab:  "./src/tab.tsx",
     },
 
     resolve: {

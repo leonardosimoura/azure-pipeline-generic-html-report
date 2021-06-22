@@ -43,7 +43,7 @@
             "targets": ["ms.vss-build-web.build-results-view"],
             "properties": {
                 "name": "HTML Report",
-                "uri": "dist/tabContent.html",
+                "uri": "dist/tab.html",
                 "registeredObjectId": "registerBuild",
                 "supportsTasks": ["c991a71e-dcb5-41f7-a94a-ef5cd11222ca"],
                 "dynamic": true

@@ -12,6 +12,6 @@
     "skipLibCheck": true,
   },
   "files": [
-      "src/tabContent.tsx"
+      "src/tab.tsx"
   ]
 }

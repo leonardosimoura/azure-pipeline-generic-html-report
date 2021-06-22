@@ -38,7 +38,7 @@
     "postinstall": "cd PublishGenericHtmlReport && npm install",
     "test": "echo No test available",
     "prune": "npm prune --production --ignore-scripts",
-    "package-extension": "tfx extension create --manifest-globs vss-extension.json --output-path azure-pipelines-generic-html-report.vsix --rev-version"
+    "package-extension": "tfx extension create --manifest-globs vss-extension.json --output-path azure-pipelines-generic-html-report.vsix"
   },
   "eslintConfig": {
     "extends": "react-app"
