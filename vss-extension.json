@@ -4,7 +4,7 @@
     "publisher": "LeonardoMoura",
     "version": "1.0.0",
     "author": "Leonardo Moura",
-    "name": "Generic Html Report Dev",
+    "name": "Generic Html Report",
     "description": "Enable Generic HTML Reports in Azure Pipelines",
     "public": false,
     "categories": ["Azure Pipelines"],
@@ -51,24 +51,24 @@
             "includes": ["ms.vss-releaseManagement-web.release-service-data-external"]
         },
         {
-            "id": "GenericHtmlReport",
+            "id": "PublishGenericHtmlReport",
             "type": "ms.vss-distributed-task.task",
             "targets": ["ms.vss-distributed-task.tasks"],
             "properties": {
-                "name": "GenericHtmlReport",
+                "name": "PublishGenericHtmlReport",
                 "displayName": "Publish Generic HTML Report"
             }
         }
     ],
     "files": [
         {
-            "path": "./GenericHtmlReport",
-            "packagePath": "GenericHtmlReport",
+            "path": "./PublishGenericHtmlReport",
+            "packagePath": "PublishGenericHtmlReport",
             "addressable": false
         },
         {
-            "path": "./GenericHtmlReport/node_modules",
-            "packagePath": "GenericHtmlReport/node_modules",
+            "path": "./PublishGenericHtmlReport/node_modules",
+            "packagePath": "PublishGenericHtmlReport/node_modules",
             "addressable": false
         },
         {
