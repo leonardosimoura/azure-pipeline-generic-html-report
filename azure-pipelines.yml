@@ -65,7 +65,7 @@ steps:
     method: vsix
     vsixFile: '**.vsix'
     accounts: 'leonardosm'
-  condition: and(succeeded(), ne(variables['Build.SourceBranchName'], 'main'))
+  # condition: and(succeeded(), ne(variables['Build.SourceBranchName'], 'main'))
 
 
 - task: CopyFiles@2
