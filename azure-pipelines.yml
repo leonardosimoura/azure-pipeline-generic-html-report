@@ -34,31 +34,13 @@ steps:
   inputs:
     rootFolder: '$(Build.SourcesDirectory)'
     outputPath: '$(Build.SourcesDirectory)/azure-pipelines-generic-html-report.vsix'
-    publisherId: 'LeonardoMoura'
+    publisherId: 'LeonardoSilviodeMoura'
     extensionId: 'azure-pipelines-generic-html-report'
     extensionName: 'Generic Html Report'
     extensionVersion: '1.0.$(Build.BuildId)'
     updateTasksVersion: true
     updateTasksVersionType: patch
     extensionVisibility: private
-
-# - task: PublishAzureDevOpsExtension@3
-#   name: 'publishDev'
-#   inputs:
-#     connectTo: 'VsTeam'
-#     connectedServiceName: 'LeonardoMouraMarketPlaceSVC'
-#     fileType: 'vsix'
-#     vsixFile: '$(Build.SourcesDirectory)\azure-pipelines-generic-html-report.vsix'
-#     publisherId: 'LeonardoMoura'
-#     extensionId: 'azure-pipelines-generic-html-report'
-#     extensionTag: dev
-#     extensionName: 'Generic Html Report Dev'
-#     extensionVersion: '1.0.$(Build.BuildId)'
-#     updateTasksVersion: true
-#     updateTasksVersionType: patch
-#     extensionVisibility: private
-#     shareWith: 'leonardosm'
-#     noWaitValidation: true
 
 - task: CopyFiles@2
   displayName: 'Copy Files'
