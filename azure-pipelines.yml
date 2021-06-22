@@ -22,6 +22,14 @@ steps:
     workingDir: .
     verbose: false
 
+- script: "npm run build"
+
+- task: TfxInstaller@3
+  displayName: 'Use Node CLI for Azure DevOps'
+  inputs:
+    version: '0.9.x'
+    checkLatest: true
+
 # - task: Npm@1
 #   displayName: 'build extension'
 #   inputs:
@@ -44,29 +52,51 @@ steps:
 #     extensionPricing: free
 #   condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
 
+# - task: PackageAzureDevOpsExtension@3
+#   displayName: 'TFX: Package Extension Dev'
+#   inputs:
+#     rootFolder: .
+#     patternManifest: 'vss-extension.json'
+#     publisherId: LeonardoMoura
+#     extensionId: azure-pipelines-generic-html-report
+#     extensionTag: dev
+#     extensionName: 'Generic Html Report Dev'
+#     extensionVersion: '1.0.$(Build.BuildId)'
+#     updateTasksVersion: true
+#     extensionVisibility: private
+#     extensionPricing: free
+
 - task: PackageAzureDevOpsExtension@3
-  displayName: 'TFX: Package Extension Dev'
+  displayName: 'Package Extension: $(Build.SourcesDirectory)'
+  name: 'packageStep'
   inputs:
-    rootFolder: .
-    patternManifest: 'vss-extension.json'
-    publisherId: LeonardoMoura
-    extensionId: azure-pipelines-generic-html-report
+    rootFolder: '$(Build.SourcesDirectory)'
+    outputPath: '$(Build.SourcesDirectory)\azure-pipelines-generic-html-report.vsix'
+    publisherId: 'LeonardoMoura'
+    extensionId: 'azure-pipelines-generic-html-report'
+    extensionTag: '-build'
+    extensionName: 'Generic Html Report Dev'
+    extensionVersion: '1.0.$(Build.BuildId)'
+    updateTasksVersion: true
+    updateTasksVersionType: patch
+    extensionVisibility: private
+- task: PublishAzureDevOpsExtension@3
+  name: 'publishDev'
+  inputs:
+    connectTo: 'VsTeam'
+    connectedServiceName: 'LeonardoMouraMarketPlaceSVC'
+    fileType: 'vsix'
+    vsixFile: '$(Build.SourcesDirectory)/vsix/vsts-developer-tools-build-tasks.vsix'
+    publisherId: 'LeonardoMoura'
+    extensionId: 'azure-pipelines-generic-html-report'
     extensionTag: dev
     extensionName: 'Generic Html Report Dev'
     extensionVersion: '1.0.$(Build.BuildId)'
     updateTasksVersion: true
+    updateTasksVersionType: patch
     extensionVisibility: private
-    extensionPricing: free
-
-- task: ShareAzureDevOpsExtension@3
-  displayName: 'TFX: Share Extension'
-  inputs:
-    connectedServiceName: LeonardoMouraMarketPlaceSVC
-    method: vsix
-    vsixFile: '**.vsix'
-    accounts: 'leonardosm'
-  # condition: and(succeeded(), ne(variables['Build.SourceBranchName'], 'main'))
-
+    shareWith: 'leonardosm'
+    noWaitValidation: true
 
 - task: CopyFiles@2
   displayName: 'Copy Files'
