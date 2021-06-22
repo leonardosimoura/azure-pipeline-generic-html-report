@@ -51,11 +51,11 @@
             "includes": ["ms.vss-releaseManagement-web.release-service-data-external"]
         },
         {
-            "id": "GenericHtmlReport",
+            "id": "PublishGenericHtmlReport",
             "type": "ms.vss-distributed-task.task",
             "targets": ["ms.vss-distributed-task.tasks"],
             "properties": {
-                "name": "GenericHtmlReport",
+                "name": "PublishGenericHtmlReport",
                 "displayName": "Publish Generic HTML Report"
             }
         }
