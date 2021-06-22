@@ -45,6 +45,7 @@ steps:
 #     updateTasksVersion: true
 #     updateTasksVersionType: patch
 #     extensionVisibility: private
+
 # - task: PublishAzureDevOpsExtension@3
 #   name: 'publishDev'
 #   inputs:
@@ -66,8 +67,7 @@ steps:
 - task: CopyFiles@2
   displayName: 'Copy Files'
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)'
-    Contents: '*.vsix'
+    Contents: '**/*.vsix'
     TargetFolder: '$(Build.ArtifactStagingDirectory)/results'
   condition: succeededOrFailed()
 
