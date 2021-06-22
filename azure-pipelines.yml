@@ -23,27 +23,28 @@ steps:
     verbose: false
 
 - script: "npm run build:cidev"
+# - script: "npm run build:cidev"
 
-- task: TfxInstaller@3
-  displayName: 'Use Node CLI for Azure DevOps'
-  inputs:
-    version: '0.9.x'
-    checkLatest: true
+# - task: TfxInstaller@3
+#   displayName: 'Use Node CLI for Azure DevOps'
+#   inputs:
+#     version: '0.9.x'
+#     checkLatest: true
 
-- task: PackageAzureDevOpsExtension@3
-  displayName: 'Package Extension: $(Build.SourcesDirectory)'
-  name: 'packageStep'
-  inputs:
-    rootFolder: '$(Build.SourcesDirectory)'
-    outputPath: '$(Build.SourcesDirectory)\azure-pipelines-generic-html-report.vsix'
-    publisherId: 'LeonardoMoura'
-    extensionId: 'azure-pipelines-generic-html-report'
-    extensionTag: '-build'
-    extensionName: 'Generic Html Report Dev'
-    extensionVersion: '1.0.$(Build.BuildId)'
-    updateTasksVersion: true
-    updateTasksVersionType: patch
-    extensionVisibility: private
+# - task: PackageAzureDevOpsExtension@3
+#   displayName: 'Package Extension: $(Build.SourcesDirectory)'
+#   name: 'packageStep'
+#   inputs:
+#     rootFolder: '$(Build.SourcesDirectory)'
+#     outputPath: '$(Build.SourcesDirectory)\azure-pipelines-generic-html-report.vsix'
+#     publisherId: 'LeonardoMoura'
+#     extensionId: 'azure-pipelines-generic-html-report'
+#     extensionTag: '-build'
+#     extensionName: 'Generic Html Report Dev'
+#     extensionVersion: '1.0.$(Build.BuildId)'
+#     updateTasksVersion: true
+#     updateTasksVersionType: patch
+#     extensionVisibility: private
 # - task: PublishAzureDevOpsExtension@3
 #   name: 'publishDev'
 #   inputs:
@@ -65,7 +66,8 @@ steps:
 - task: CopyFiles@2
   displayName: 'Copy Files'
   inputs:
-    Contents: '*/**.vsix'
+    SourceFolder: '$(Build.SourcesDirectory)/dist'
+    Contents: 'azure-pipelines-generic-html-report.vsix'
     TargetFolder: '$(Build.ArtifactStagingDirectory)/results'
   condition: succeededOrFailed()
 
