@@ -67,7 +67,7 @@ steps:
   displayName: 'Copy Files'
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)/dist'
-    Contents: '*.*'
+    Contents: '*.vsix'
     TargetFolder: '$(Build.ArtifactStagingDirectory)/results'
   condition: succeededOrFailed()
 
