@@ -13,7 +13,7 @@ steps:
 - task: Npm@1
   displayName: 'NPM: Install Task Dependencies'
   inputs:
-    workingDir: GenericHtmlReport
+    workingDir: PublishGenericHtmlReport
     verbose: false
 
 - task: Npm@1
