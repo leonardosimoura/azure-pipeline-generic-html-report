@@ -22,7 +22,7 @@ steps:
     workingDir: .
     verbose: false
 
-#- script: "npm run build"
+- script: "npm run build:cidev"
 
 - task: TfxInstaller@3
   displayName: 'Use Node CLI for Azure DevOps'
