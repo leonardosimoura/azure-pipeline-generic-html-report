@@ -1,7 +1,3 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
 trigger: none
 steps:
 - task: NodeTool@0
@@ -40,8 +36,7 @@ steps:
     outputPath: '$(Build.SourcesDirectory)/azure-pipelines-generic-html-report.vsix'
     publisherId: 'LeonardoMoura'
     extensionId: 'azure-pipelines-generic-html-report'
-    extensionTag: '-build'
-    extensionName: 'Generic Html Report Dev'
+    extensionName: 'Generic Html Report'
     extensionVersion: '1.0.$(Build.BuildId)'
     updateTasksVersion: true
     updateTasksVersionType: patch
