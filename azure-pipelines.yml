@@ -30,42 +30,6 @@ steps:
     version: '0.9.x'
     checkLatest: true
 
-# - task: Npm@1
-#   displayName: 'build extension'
-#   inputs:
-#     command: custom
-#     workingDir: .
-#     verbose: false
-#     customCommand: 'run build:cidev'
-
-#- script: "npm run build"
-
-# - task: PackageAzureDevOpsExtension@3
-#   displayName: 'TFX: Package Extension Prod'
-#   inputs:
-#     rootFolder: .
-#     patternManifest: 'vss-extension.json'
-#     publisherId: LeonardoSilviodeMoura
-#     extensionId: azure-pipelines-generic-html-report
-#     extensionName: 'Generic Html Report'
-#     extensionVisibility: private
-#     extensionPricing: free
-#   condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
-
-# - task: PackageAzureDevOpsExtension@3
-#   displayName: 'TFX: Package Extension Dev'
-#   inputs:
-#     rootFolder: .
-#     patternManifest: 'vss-extension.json'
-#     publisherId: LeonardoSilviodeMoura
-#     extensionId: azure-pipelines-generic-html-report
-#     extensionTag: dev
-#     extensionName: 'Generic Html Report Dev'
-#     extensionVersion: '1.0.$(Build.BuildId)'
-#     updateTasksVersion: true
-#     extensionVisibility: private
-#     extensionPricing: free
-
 - task: PackageAzureDevOpsExtension@3
   displayName: 'Package Extension: $(Build.SourcesDirectory)'
   name: 'packageStep'
@@ -80,23 +44,23 @@ steps:
     updateTasksVersion: true
     updateTasksVersionType: patch
     extensionVisibility: private
-- task: PublishAzureDevOpsExtension@3
-  name: 'publishDev'
-  inputs:
-    connectTo: 'VsTeam'
-    connectedServiceName: 'LeonardoMouraMarketPlaceSVC'
-    fileType: 'vsix'
-    vsixFile: '$(Build.SourcesDirectory)\azure-pipelines-generic-html-report.vsix'
-    publisherId: 'LeonardoSilviodeMoura'
-    extensionId: 'azure-pipelines-generic-html-report'
-    extensionTag: dev
-    extensionName: 'Generic Html Report Dev'
-    extensionVersion: '1.0.$(Build.BuildId)'
-    updateTasksVersion: true
-    updateTasksVersionType: patch
-    extensionVisibility: private
-    shareWith: 'leonardosm'
-    noWaitValidation: true
+# - task: PublishAzureDevOpsExtension@3
+#   name: 'publishDev'
+#   inputs:
+#     connectTo: 'VsTeam'
+#     connectedServiceName: 'LeonardoMouraMarketPlaceSVC'
+#     fileType: 'vsix'
+#     vsixFile: '$(Build.SourcesDirectory)\azure-pipelines-generic-html-report.vsix'
+#     publisherId: 'LeonardoSilviodeMoura'
+#     extensionId: 'azure-pipelines-generic-html-report'
+#     extensionTag: dev
+#     extensionName: 'Generic Html Report Dev'
+#     extensionVersion: '1.0.$(Build.BuildId)'
+#     updateTasksVersion: true
+#     updateTasksVersionType: patch
+#     extensionVisibility: private
+#     shareWith: 'leonardosm'
+#     noWaitValidation: true
 
 - task: CopyFiles@2
   displayName: 'Copy Files'
