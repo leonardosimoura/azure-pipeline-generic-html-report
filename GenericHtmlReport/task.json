@@ -1,8 +1,8 @@
 {
   "id": "c991a71e-dcb5-41f7-a94a-ef5cd11222ca",
-  "name": "GenericHtmlReport",
-  "friendlyName": "Generic Html Report",
-  "description": "Generic Html Report",
+  "name": "PublishGenericHtmlReport",
+  "friendlyName": "Publish Generic Html Report",
+  "description": "Publish Generic Html Report",
   "author": "Leonardo Silvio de Moura",
   "helpMarkDown": "Publish Generic HTML Report ",
   "category": "Utility",
@@ -16,7 +16,7 @@
     "Patch": "0"
   },
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "Generic Html Report",
+  "instanceNameFormat": "Publish Generic Html Report",
   "inputs": [
     {
       "name": "tabName",
