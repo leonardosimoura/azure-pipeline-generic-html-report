@@ -37,7 +37,7 @@ steps:
   name: 'packageStep'
   inputs:
     rootFolder: '$(Build.SourcesDirectory)'
-    outputPath: '$(Build.SourcesDirectory)\azure-pipelines-generic-html-report.vsix'
+    outputPath: '$(Build.SourcesDirectory)/azure-pipelines-generic-html-report.vsix'
     publisherId: 'LeonardoMoura'
     extensionId: 'azure-pipelines-generic-html-report'
     extensionTag: '-build'
