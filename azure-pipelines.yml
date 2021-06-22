@@ -67,7 +67,7 @@ steps:
   displayName: 'Copy Files'
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)/dist'
-    Contents: 'azure-pipelines-generic-html-report.vsix'
+    Contents: '*.*'
     TargetFolder: '$(Build.ArtifactStagingDirectory)/results'
   condition: succeededOrFailed()
 
